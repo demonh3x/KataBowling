@@ -20,14 +20,11 @@ public class Frame {
         return (frameNumber < 9) && (isStrike() || shots == 2);
     }
 
-    public boolean shoot(int droppedPins) {
-        if (!ended()){
-            pins[shots] = droppedPins;
-            shots++;
-            return true;
-        } else {
-            return false;
-        }
+    public void shoot(int droppedPins) {
+        if (ended())
+            throw new IllegalStateException("Shooting on a finished frame");
+        pins[shots] = droppedPins;
+        shots++;
     }
 
     public int getScore(){
