@@ -44,7 +44,7 @@ public class GameTest {
 
     @Test
     public void oneStrike() {
-        instance.roll(10);
+        rollStrike();
         for (int i = 0; i < 9; i++){
             rollNoBonus();
         }
@@ -53,8 +53,8 @@ public class GameTest {
 
     @Test
     public void multipleBonus() {
-        instance.roll(10);
-        instance.roll(10);
+        rollStrike();
+        rollStrike();
         rollSpare();
         rollSpare();
         for (int i = 0; i < 6; i++){
@@ -75,7 +75,7 @@ public class GameTest {
     @Test
     public void perfectGame() {
         for (int i = 0; i < 12; i++) {
-            instance.roll(10);
+            rollStrike();
         }
         assertEquals((30)*10, instance.getScore());
     }
@@ -88,5 +88,9 @@ public class GameTest {
     private void rollSpare() {
         instance.roll(5);
         instance.roll(5);
+    }
+
+    private void rollStrike() {
+        instance.roll(10);
     }
 }
