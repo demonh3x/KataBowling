@@ -1,14 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package pqBowling;
 
-import pqBowling.Game;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,28 +10,12 @@ import static org.junit.Assert.*;
  */
 public class GameTest {
     private Game instance;
-    
-    public GameTest() {
-    }
 
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-    
     @Before
     public void setUp() {
         instance = new Game();
     }
-    
-    @After
-    public void tearDown() {
-    }
 
-    //TESTS----------------------------------------------------------
     @Test
     public void gutterGame() {
         for(int i = 0; i < 20; i++){
@@ -56,7 +32,7 @@ public class GameTest {
         }
         assertEquals(90, instance.getScore());
     }
-    
+
     @Test
     public void oneSpare() {
         rollSpare();
@@ -65,7 +41,7 @@ public class GameTest {
         }
         assertEquals(5+5+5+(9*9), instance.getScore());
     }
-    
+
     @Test
     public void oneStrike() {
         instance.roll(10);
@@ -86,7 +62,7 @@ public class GameTest {
         }
         assertEquals((10+10+5)+(10+5+5)+(5+5+5)+(5+5+5)+(9*6), instance.getScore());
     }
-    
+
     @Test
     public void allSpares() {
         for (int i = 0; i < 10; i++) {
@@ -113,5 +89,4 @@ public class GameTest {
         instance.roll(5);
         instance.roll(5);
     }
-
 }
