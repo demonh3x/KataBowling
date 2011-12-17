@@ -5,7 +5,7 @@ package pqBowling;
  */
 public class Frame {
     private int shots = 0;
-    private int pins[] = {0, 0};
+    private int pins[] = {0, 0, 0};
     protected int frameNumber = 0;
 
     public boolean isStrike(){
@@ -21,10 +21,10 @@ public class Frame {
     }
 
     public boolean ended(){
-        return (isStrike() || shots == 2);
+        return (frameNumber < 9) && (isStrike() || shots == 2);
     }
 
-    public boolean shoot(int droppedPins){
+    public boolean shoot(int droppedPins) {
         if (!ended()){
             pins[shots] = droppedPins;
             shots++;
@@ -42,6 +42,7 @@ public class Frame {
         shots = 0;
         pins[0] = 0;
         pins[1] = 0;
+        pins[2] = 0;
         frameNumber++;
     }
 }

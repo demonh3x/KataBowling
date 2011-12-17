@@ -50,7 +50,7 @@ public class Game {
 
         score += pins * (bonus.next() + 1);
 
-        if (currentFrame.frameNumber < 9  && currentFrame.ended()){
+        if (currentFrame.ended()){
             if (currentFrame.isStrike())
                 bonus.strike();
             else if (currentFrame.isSpare())
