@@ -55,7 +55,7 @@ public class Game {
                 bonus.strike();
             else if (currentFrame.isSpare())
                 bonus.spare();
-            currentFrame.reset();
+            currentFrame.nextFrame();
         }
     }
 

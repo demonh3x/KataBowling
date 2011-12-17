@@ -6,13 +6,13 @@ package pqBowling;
 public class Frame {
     private int shots = 0;
     private int pins[] = {0, 0, 0};
-    protected int frameNumber = 0;
+    private int frameNumber = 0;
 
-    public boolean isStrike(){
+    public boolean isStrike() {
         return (shots == 1 && pins[0] == 10);
     }
 
-    public boolean isSpare(){
+    public boolean isSpare() {
         return (shots == 2 && (pins[0] + pins[1]) == 10);
     }
 
@@ -20,7 +20,7 @@ public class Frame {
         return (!isStrike() && !isSpare());
     }
 
-    public boolean ended(){
+    public boolean ended() {
         return (frameNumber < 9) && (isStrike() || shots == 2);
     }
 
@@ -38,7 +38,7 @@ public class Frame {
         return pins[0] + pins[1];
     }
 
-    public void reset(){
+    public void nextFrame(){
         shots = 0;
         pins[0] = 0;
         pins[1] = 0;
