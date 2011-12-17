@@ -16,10 +16,6 @@ public class Frame {
         return (shots == 2 && (pins[0] + pins[1]) == 10);
     }
 
-    public boolean noBonus(){
-        return (!isStrike() && !isSpare());
-    }
-
     public boolean ended() {
         return (frameNumber < 9) && (isStrike() || shots == 2);
     }
