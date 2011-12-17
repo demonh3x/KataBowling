@@ -43,24 +43,18 @@ package pqBowling;
 public class Game {
     private Frame currentFrame = new Frame();
     private int score = 0;
-    private int bonusN = 0;
-    private int bonusNN = 0;
+    private Bonus bonus = new Bonus();
 
     public void roll(int pins) {
         currentFrame.shoot(pins);
 
-        score += pins * (bonusN + 1);
-        bonusN = bonusNN;
-        bonusNN = 0;
+        score += pins * (bonus.next() + 1);
 
         if (currentFrame.frameNumber < 9  && currentFrame.ended()){
-            if (currentFrame.isStrike()) {
-                bonusN++;
-                bonusNN++;
-            } else if (currentFrame.isSpare()) {
-                bonusN++;
-            }
-
+            if (currentFrame.isStrike())
+                bonus.strike();
+            else if (currentFrame.isSpare())
+                bonus.spare();
             currentFrame.reset();
         }
     }
