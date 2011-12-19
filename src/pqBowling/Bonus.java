@@ -6,22 +6,22 @@ package pqBowling;
  */
 public class Bonus {
 
-    private int bonusN = 0;
-    private int bonusNN = 0;
+    private int nextBonus = 0;
+    private int afterNextBonus = 0;
 
     public int next() {
-        int nextBonus = bonusN;
-        bonusN = bonusNN;
-        bonusNN = 0;
-        return nextBonus;
+        int temp = nextBonus;
+        nextBonus = afterNextBonus;
+        afterNextBonus = 0;
+        return temp;
     }
 
     public void strike() {
-        bonusN++;
-        bonusNN++;
+        nextBonus++;
+        afterNextBonus++;
     }
 
     public void spare() {
-        bonusN++;
+        nextBonus++;
     }
 }
